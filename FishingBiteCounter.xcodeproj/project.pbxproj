@@ -21,10 +21,10 @@
 		A1000017238F0001 /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000018238F0001 /* Hole.swift */; };
 		A1000019238F0001 /* FishingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001A238F0001 /* FishingSession.swift */; };
 		A100001B238F0001 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001C238F0001 /* DataManager.swift */; };
+		A100001D238F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A100001E238F0001 /* Assets.xcassets */; };
 		A1000033238F0001 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000032238F0001 /* CustomTabBar.swift */; };
 		A1000035238F0001 /* BaitPerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000034238F0001 /* BaitPerformanceView.swift */; };
 		A1000037238F0001 /* DataManager+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000036238F0001 /* DataManager+Analytics.swift */; };
-		A100001D238F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A100001E238F0001 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,11 +42,11 @@
 		A1000018238F0001 /* Hole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hole.swift; sourceTree = "<group>"; };
 		A100001A238F0001 /* FishingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingSession.swift; sourceTree = "<group>"; };
 		A100001C238F0001 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		A100001E238F0001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1000020238F0001 /* FishingBiteCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishingBiteCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1000032238F0001 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		A1000034238F0001 /* BaitPerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaitPerformanceView.swift; sourceTree = "<group>"; };
 		A1000036238F0001 /* DataManager+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+Analytics.swift"; sourceTree = "<group>"; };
-		A100001E238F0001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A1000020238F0001 /* FishingBiteCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishingBiteCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,9 +370,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -404,29 +406,31 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A100002D238F0001 /* Build configuration list for PBXProject "FishingBiteCounter" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A100002E238F0001 /* Debug */,
-				A100002F238F0001 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A1000029238F0001 /* Build configuration list for PBXNativeTarget "FishingBiteCounter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1000030238F0001 /* Debug */,
 				A1000031238F0001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A100002D238F0001 /* Build configuration list for PBXProject "FishingBiteCounter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A100002E238F0001 /* Debug */,
+				A100002F238F0001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
