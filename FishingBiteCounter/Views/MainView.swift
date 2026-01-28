@@ -3,51 +3,33 @@ import SwiftUI
 struct MainView: View {
     @State private var selectedTab = 0
     
+    // Hide standard tab bar by not using TabView standard style
+    // Instead use a ZStack to swap views manually
+    
     var body: some View {
-        TabView(selection: $selectedTab) {
-            HolesListView()
-                .tabItem {
-                    VStack {
-                        Icons.HoleIcon(size: 24, color: selectedTab == 0 ? Color(hex: "1E88E5") : .gray)
-                        Text("Holes")
-                    }
+        ZStack(alignment: .bottom) {
+            // Main Content Area
+            Group {
+                switch selectedTab {
+                case 0:
+                    HolesListView()
+                case 1:
+                    StatisticsView()
+                case 2:
+                    SessionHistoryView()
+                case 3:
+                    BaitPerformanceView()
+                default:
+                    HolesListView()
                 }
-                .tag(0)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.bottom, 60) // Space for custom tab bar
             
-            StatisticsView()
-                .tabItem {
-                    VStack {
-                        Icons.ChartIcon(size: 24, color: selectedTab == 1 ? Color(hex: "1E88E5") : .gray)
-                        Text("Stats")
-                    }
-                }
-                .tag(1)
-            
-            SessionHistoryView()
-                .tabItem {
-                    VStack {
-                        Icons.HistoryIcon(size: 24, color: selectedTab == 2 ? Color(hex: "1E88E5") : .gray)
-                        Text("History")
-                    }
-                }
-                .tag(2)
+            // Custom Tab Bar
+            CustomTabBar(selectedTab: $selectedTab)
+                .edgesIgnoringSafeArea(.bottom)
         }
-        .accentColor(Color(hex: "1E88E5"))
-        .preferredColorScheme(.dark)
-        .onAppear {
-            // Custom tab bar appearance
-            let appearance = UITabBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = UIColor(Color(hex: "0D0D1A"))
-            
-            appearance.stackedLayoutAppearance.normal.iconColor = .gray
-            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.gray]
-            
-            appearance.stackedLayoutAppearance.selected.iconColor = UIColor(Color(hex: "1E88E5"))
-            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(Color(hex: "1E88E5"))]
-            
-            UITabBar.appearance().standardAppearance = appearance
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
+        .background(Color(hex: "0D0D1A").ignoresSafeArea())
     }
 }

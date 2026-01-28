@@ -21,6 +21,9 @@
 		A1000017238F0001 /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000018238F0001 /* Hole.swift */; };
 		A1000019238F0001 /* FishingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001A238F0001 /* FishingSession.swift */; };
 		A100001B238F0001 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100001C238F0001 /* DataManager.swift */; };
+		A1000033238F0001 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000032238F0001 /* CustomTabBar.swift */; };
+		A1000035238F0001 /* BaitPerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000034238F0001 /* BaitPerformanceView.swift */; };
+		A1000037238F0001 /* DataManager+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000036238F0001 /* DataManager+Analytics.swift */; };
 		A100001D238F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A100001E238F0001 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +42,9 @@
 		A1000018238F0001 /* Hole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hole.swift; sourceTree = "<group>"; };
 		A100001A238F0001 /* FishingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingSession.swift; sourceTree = "<group>"; };
 		A100001C238F0001 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		A1000032238F0001 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		A1000034238F0001 /* BaitPerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaitPerformanceView.swift; sourceTree = "<group>"; };
+		A1000036238F0001 /* DataManager+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataManager+Analytics.swift"; sourceTree = "<group>"; };
 		A100001E238F0001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1000020238F0001 /* FishingBiteCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishingBiteCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				A100001C238F0001 /* DataManager.swift */,
+				A1000036238F0001 /* DataManager+Analytics.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -108,6 +115,7 @@
 				A1000008238F0001 /* HoleDetailView.swift */,
 				A100000A238F0001 /* StatisticsView.swift */,
 				A100000C238F0001 /* SessionHistoryView.swift */,
+				A1000034238F0001 /* BaitPerformanceView.swift */,
 				A1000027238F0001 /* Components */,
 			);
 			path = Views;
@@ -120,6 +128,7 @@
 				A1000010238F0001 /* CustomButton.swift */,
 				A1000012238F0001 /* StatCard.swift */,
 				A1000014238F0001 /* HoleCardView.swift */,
+				A1000032238F0001 /* CustomTabBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -207,6 +216,9 @@
 				A1000017238F0001 /* Hole.swift in Sources */,
 				A1000019238F0001 /* FishingSession.swift in Sources */,
 				A100001B238F0001 /* DataManager.swift in Sources */,
+				A1000033238F0001 /* CustomTabBar.swift in Sources */,
+				A1000035238F0001 /* BaitPerformanceView.swift in Sources */,
+				A1000037238F0001 /* DataManager+Analytics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
