@@ -182,19 +182,21 @@ struct HoleDetailView: View {
                         .foregroundColor(.gray)
                 }
                 
-                TextEditor(text: $notes)
-                    .frame(minHeight: 80)
-                    .padding(12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color(hex: "1A1A2E"))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color(hex: "1E88E5").opacity(0.3), lineWidth: 1)
-                            )
-                    )
-                    .foregroundColor(.white)
-                    .scrollContentBackground(.hidden)
+                ZStack(alignment: .topLeading) {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color(hex: "1A1A2E"))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color(hex: "1E88E5").opacity(0.3), lineWidth: 1)
+                        )
+                        .frame(minHeight: 80)
+                    
+                    TextEditor(text: $notes)
+                        .frame(minHeight: 80)
+                        .padding(12)
+                        .foregroundColor(.white)
+                        .background(Color.clear)
+                }
             }
         }
         .padding(16)
