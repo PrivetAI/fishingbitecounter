@@ -44,9 +44,11 @@ class DataManager: ObservableObject {
     
     // MARK: - Hole Operations
     
-    func addHole(name: String, bait: String? = nil) {
+    func addHole(name: String, bait: String? = nil, depth: Double? = nil, notes: String? = nil) {
         var hole = Hole(name: name)
         hole.bait = bait
+        hole.depth = depth
+        hole.notes = notes
         currentSession.holes.append(hole)
         saveCurrentSession()
     }

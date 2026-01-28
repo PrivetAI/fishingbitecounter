@@ -6,6 +6,8 @@ struct HolesListView: View {
     @State private var showingAddHole = false
     @State private var newHoleName = ""
     @State private var newHoleBait = ""
+    @State private var newHoleDepth = ""
+    @State private var newHoleNotes = ""
     @State private var selectedHole: Hole?
     
     var body: some View {
@@ -179,23 +181,40 @@ struct HolesListView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                     
-                    VStack(spacing: 16) {
-                        TextField("Hole name", text: $newHoleName)
-                            .textFieldStyle(CustomTextFieldStyle())
-                        
-                        HStack(spacing: 8) {
-                            Icons.BaitIcon(size: 20, color: .orange)
-                            TextField("Bait (optional)", text: $newHoleBait)
+                    ScrollView {
+                        VStack(spacing: 16) {
+                            // Name (required)
+                            TextField("Hole name *", text: $newHoleName)
                                 .textFieldStyle(CustomTextFieldStyle())
+                            
+                            // Bait (optional)
+                            HStack(spacing: 8) {
+                                Icons.BaitIcon(size: 20, color: .orange)
+                                TextField("Bait (optional)", text: $newHoleBait)
+                                    .textFieldStyle(CustomTextFieldStyle())
+                            }
+                            
+                            // Depth (optional)
+                            HStack(spacing: 8) {
+                                Icons.DepthIcon(size: 20, color: .cyan)
+                                TextField("Depth in metres (optional)", text: $newHoleDepth)
+                                    .keyboardType(.decimalPad)
+                                    .textFieldStyle(CustomTextFieldStyle())
+                            }
+                            
+                            // Notes (optional)
+                            HStack(alignment: .top, spacing: 8) {
+                                Icons.NotesIcon(size: 20, color: .white)
+                                TextField("Notes (optional)", text: $newHoleNotes)
+                                    .textFieldStyle(CustomTextFieldStyle())
+                            }
                         }
                     }
                     .padding(.horizontal, 24)
                     
-                    Text("e.g. Bloodworm, Maggot, Mormyshka")
+                    Text("Tap hole card later to edit details")
                         .font(.caption)
                         .foregroundColor(.gray)
-                    
-                    Spacer()
                     
                     CustomButton(
                         title: "Add Hole",
@@ -212,8 +231,7 @@ struct HolesListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: Button("Cancel") {
                 showingAddHole = false
-                newHoleName = ""
-                newHoleBait = ""
+                clearNewHoleFields()
             }
             .foregroundColor(Color(hex: "1E88E5")))
         }
@@ -225,10 +243,18 @@ struct HolesListView: View {
     private func addNewHole() {
         guard !newHoleName.isEmpty else { return }
         let bait = newHoleBait.isEmpty ? nil : newHoleBait
-        dataManager.addHole(name: newHoleName, bait: bait)
+        let depth = Double(newHoleDepth)
+        let notes = newHoleNotes.isEmpty ? nil : newHoleNotes
+        dataManager.addHole(name: newHoleName, bait: bait, depth: depth, notes: notes)
+        clearNewHoleFields()
+        showingAddHole = false
+    }
+    
+    private func clearNewHoleFields() {
         newHoleName = ""
         newHoleBait = ""
-        showingAddHole = false
+        newHoleDepth = ""
+        newHoleNotes = ""
     }
     
     private func addBite(to hole: Hole, wasCaught: Bool) {
