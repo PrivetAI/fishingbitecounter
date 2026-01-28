@@ -19,15 +19,13 @@ struct SessionHistoryView: View {
             }
             .navigationTitle("History")
             .navigationBarTitleDisplayMode(.large)
-            .toolbar {
+            .navigationBarItems(trailing: Group {
                 if !dataManager.sessionHistory.isEmpty {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { showingClearAlert = true }) {
-                            Icons.TrashIcon(size: 20, color: .red)
-                        }
+                    Button(action: { showingClearAlert = true }) {
+                        Icons.TrashIcon(size: 20, color: .red)
                     }
                 }
-            }
+            })
             .sheet(item: $selectedSession) { session in
                 SessionDetailView(session: session)
             }
