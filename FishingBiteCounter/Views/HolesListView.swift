@@ -5,6 +5,7 @@ struct HolesListView: View {
     @ObservedObject var dataManager = DataManager.shared
     @State private var showingAddHole = false
     @State private var newHoleName = ""
+    @State private var newHoleBait = ""
     @State private var selectedHole: Hole?
     
     var body: some View {
@@ -178,11 +179,19 @@ struct HolesListView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                     
-                    TextField("Hole name", text: $newHoleName)
-                        .textFieldStyle(CustomTextFieldStyle())
-                        .padding(.horizontal, 24)
+                    VStack(spacing: 16) {
+                        TextField("Hole name", text: $newHoleName)
+                            .textFieldStyle(CustomTextFieldStyle())
+                        
+                        HStack(spacing: 8) {
+                            Icons.BaitIcon(size: 20, color: .orange)
+                            TextField("Bait (optional)", text: $newHoleBait)
+                                .textFieldStyle(CustomTextFieldStyle())
+                        }
+                    }
+                    .padding(.horizontal, 24)
                     
-                    Text("e.g. Hole 1, Near the tree, Deep spot")
+                    Text("e.g. Bloodworm, Maggot, Mormyshka")
                         .font(.caption)
                         .foregroundColor(.gray)
                     
@@ -201,15 +210,12 @@ struct HolesListView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        showingAddHole = false
-                        newHoleName = ""
-                    }
-                    .foregroundColor(Color(hex: "1E88E5"))
-                }
+            .navigationBarItems(leading: Button("Cancel") {
+                showingAddHole = false
+                newHoleName = ""
+                newHoleBait = ""
             }
+            .foregroundColor(Color(hex: "1E88E5")))
         }
         .preferredColorScheme(.dark)
     }
@@ -218,8 +224,10 @@ struct HolesListView: View {
     
     private func addNewHole() {
         guard !newHoleName.isEmpty else { return }
-        dataManager.addHole(name: newHoleName)
+        let bait = newHoleBait.isEmpty ? nil : newHoleBait
+        dataManager.addHole(name: newHoleName, bait: bait)
         newHoleName = ""
+        newHoleBait = ""
         showingAddHole = false
     }
     

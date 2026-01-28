@@ -36,6 +36,20 @@ struct HoleCardView: View {
                             .foregroundColor(.gray)
                     }
                     
+                    // Bait badge (if set)
+                    if let bait = hole.bait, !bait.isEmpty {
+                        HStack(spacing: 6) {
+                            Icons.BaitIcon(size: 14, color: .orange)
+                            Text(bait)
+                                .font(.caption)
+                                .foregroundColor(.orange)
+                        }
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 4)
+                        .background(Color.orange.opacity(0.15))
+                        .cornerRadius(8)
+                    }
+                    
                     // Stats
                     HStack(spacing: 16) {
                         // Bites
