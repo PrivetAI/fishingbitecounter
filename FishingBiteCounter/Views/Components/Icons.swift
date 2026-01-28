@@ -29,7 +29,7 @@ struct Icons {
                 tailPath.move(to: CGPoint(x: 4 * scale, y: 12 * scale))
                 tailPath.addLine(to: CGPoint(x: 1 * scale, y: 6 * scale))
                 tailPath.addLine(to: CGPoint(x: 1 * scale, y: 18 * scale))
-                tailPath.close()
+                tailPath.closeSubpath()
                 
                 context.fill(bodyPath, with: .color(color))
                 context.fill(tailPath, with: .color(color))
@@ -227,7 +227,7 @@ struct Icons {
                 path.addLine(to: CGPoint(x: 10 * scale, y: 22 * scale))
                 path.addLine(to: CGPoint(x: 16 * scale, y: 10 * scale))
                 path.addLine(to: CGPoint(x: 12 * scale, y: 10 * scale))
-                path.close()
+                path.closeSubpath()
                 
                 context.fill(path, with: .color(color))
             }
